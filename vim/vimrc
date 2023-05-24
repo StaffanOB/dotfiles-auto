@@ -1,6 +1,5 @@
 " ------------------------------------------------------------------------------
 " PLUGIN CONFIGURATIONS 
-
 " Vim-plug initialization
 let vim_plug_just_installed = 0
 let vim_plug_path = expand('~/.vim/autoload/plug.vim')
@@ -31,7 +30,6 @@ call plug#begin("~/.vim/plugins")
 Plug 'ap/vim-buftabline'                                " Helps manage buffers
 Plug 'vim-airline/vim-airline'                          " VIM Status bar
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'itchyny/lightline.vim'                           " VIM Status bar
 Plug 'mhinz/vim-startify'                               " VIM Start Page
 
 
@@ -78,7 +76,6 @@ endif
 " Colors and theme
 let &colorcolumn='81'                                   " Set a marker at colum 80
 highlight ColorColumn ctermbg=233
-colorscheme onedark
 
 
 " ------------------------------------------------------------------------------
