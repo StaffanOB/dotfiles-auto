@@ -32,8 +32,8 @@ for i in "${DIRS[@]}"; do
 	source "$i/install.sh"
 
     for (( j = 0; j < ${#SLINK[@]}; j++ )); do
-        echo "rm -rf ${DLINK[$j]} > /dev/null 2>&1"
-        echo "ls -s ${DOTD}/${COMMAND}/${SLINK[$j]} ${DLINK[$j]}"
+        rm -rf ${DLINK[$j]} > /dev/null 2>&1
+        ln -s ${DOTD}/${COMMAND}/${SLINK[$j]} ${DLINK[$j]}
     done
 
 
