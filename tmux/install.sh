@@ -3,4 +3,4 @@ COMMAND="tmux"
 FILES=('tmux.conf')
 DLINK=('/tmp/.tmux.conf')
 
-sudo apt install tmux > /dev/null 2&>1
+sudo apt install tmux &> /dev/null 
