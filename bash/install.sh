@@ -1,4 +1,4 @@
-echo Bash Installation
+echo "BASH"
 COMMAND="bash"
-SLINK=('bashrc' 'bash_alias' 'bash_profile')
+FILES=('bashrc' 'bash_alias' 'bash_profile')
 DLINK=('/tmp/.bashrc' '/tmp/.bash_alias' '/tmp/.bash_profile')
