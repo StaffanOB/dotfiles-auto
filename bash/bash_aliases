@@ -1,0 +1,10 @@
+alias l='ls -lh'
+alias ll='ls -AlF'
+alias mutt='neomutt'
+
+# Editor
+#alias vim='vi'
+
+
+# VPNs
+alias vpn-htb='sudo openvpn --config /home/staffan/vpns/hack-the-box-start.ovpn'
