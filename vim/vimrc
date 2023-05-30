@@ -26,7 +26,7 @@ call plug#begin("~/.vim/plugins")
 " PLUGGIN LIST
 
 " General
-"Plug 'vimwiki/vimwiki'                                 " Markdown wiki 
+Plug 'vimwiki/vimwiki'                                 " Markdown wiki 
 Plug 'ap/vim-buftabline'                                " Helps manage buffers
 Plug 'vim-airline/vim-airline'                          " VIM Status bar
 Plug 'vim-airline/vim-airline-themes'
@@ -123,8 +123,103 @@ set path+=**                                          " Recursive file searching
 set foldmethod=indent
 set foldlevel=99
 
+" clear empty spaces at the end of lines on save of python files
+autocmd BufWritePre *.py :%s/\s\+$//e
+
+au BufNewFile, BufRead *.py
+	\ set tabstop=4
+	\ set softtabstop=4
+	\ set shiftwidth=4
+	\ set textwidth=79
+	\ set expandtab
+	\ set autoindent
+	\ set fileformat=unix
+
+
+" restore place in file from previous session
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufNewFile,BufReadPost *.md set nonu nornu
+
 " ------------------------------------------------------------------------------
 " PLUGINS SETTINGS AND MAPPINGS  
 
+source $HOME/.vim/vimrc_vimwiki
+
+
 " ------------------------------------------------------------------------------
 " GENERAL KEYBINDINGS
+let mapleader = "\<Space>"
+
+
+" Windows
+noremap <leader>v :vsplit<cr>
+noremap <leader>s :split<cr>
+
+" Tab Navigation mappings
+map  tt :tabnew
+map  <M-Right> :tabn<CR>
+map  <M-Left> :tabp<CR>
+imap <M-Right> <ESC>:tabn<CR>
+imap <M-Left> <ESC>:tabp<CR>
+
+" Searching
+nnoremap <silent> // :noh<CR>
+
+" move through split windows
+nmap <leader>k :wincmd k<CR>
+nmap <leader>j :wincmd j<CR>
+nmap <leader>h :wincmd h<CR>
+nmap <leader>l :wincmd l<CR>
+
+" move through buffers Back, Next, Close, Toggle, list
+nmap <leader>[ :bp!<CR>
+nmap <leader>] :bn!<CR>
+nmap <leader>x :bd<CR>"
+nmap <leader>p :e#<CR>
+nmap <leader>B :Buffers<CR>
+
+
+" Moving selected text
+nnoremap <c-k> :m .-2<CR>==
+nnoremap <c-j> :m .+1<CR>==
+vnoremap <c-j> :m '>+1<CR>gv=gv
+vnoremap <c-k> :m '<-2<CR>gv=gv
+
+
+" Date and time
+imap <F2> <C-R>=strftime("%A, %d %b %Y")<CR>
+imap <F3> <C-R>=strftime("%I:%m")<CR>
+imap <F4> <C-R>=strftime("%Y-%m-%d %a %I:%m %p")<CR>
+
+" Terminal
+" Enter normal mode in terminal   ctrl+w N
+" Exit normal mode                I
+noremap <Leader>ttv :botright vertical terminal ++cols=80<CR>
+noremap <Leader>tt :below terminal ++rows=10<CR>
+
+" Open vim file tree
+nnoremap <leader>f :wincmd v<bar> :Ex <bar> :vertical resize30<CR
+    
+" Moving selected text 
+nnoremap <c-k> :m .-2<CR>== 
+nnoremap <c-j> :m .+1<CR>== 
+vnoremap <c-j> :m '>+1<CR>gv=gv
+vnoremap <c-k> :m '<-2<CR>gv=gv
+
+
+" Date and time
+imap <F2> <C-R>=strftime("%A, %d %b %Y")<CR>
+imap <F3> <C-R>=strftime("%I:%m")<CR>
+imap <F4> <C-R>=strftime("%Y-%m-%d %a %I:%m %p")<CR>
+
+" Terminal
+" Enter normal mode in terminal   ctrl+w N
+" Exit normal mode                I
+noremap <Leader>ttv :botright vertical terminal ++cols=80<CR>
+noremap <Leader>tt :below terminal ++rows=10<CR>
+
+" Open vim file tree 
+nnoremap <leader>f :wincmd v<bar> :Ex <bar> :vertical resize30<CR>
+
+" ------------------------------------------------------------------------------
+" PLUGINS
