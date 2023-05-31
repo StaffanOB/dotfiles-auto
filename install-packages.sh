@@ -43,10 +43,15 @@ for i in "${DIRS[@]}"; do
 
     for (( j = 0; j < ${#FILES[@]}; j++ )); do
         if test -f "${DOTD}/${COMMAND}/${FILES[$j]}"; then 
-    		rm -rf ${DLINK[$j]} > /dev/null 2>&1
+    		rm -rf ${DLINK[$j]} > /dev/null 3>&1
 	    	ln -s ${DOTD}/${COMMAND}/${FILES[$j]} ${DLINK[$j]}
 
             echo "     * Symlink to ${DOTD}/${COMMAND}/${FILES[$j]} created"
+        elif test -d "${DOTD}/${FILES[$j]}"; then
+    		rm -rf ${DLINK[$j]} > /dev/null 3>&1
+	    	ln -s ${DOTD}/${FILES[$j]} ${DLINK[$j]}
+
+            echo "     * Symlink to ${DOTD}/${FILES[$j]} created"
         else
             echo "     * No config file found and no links was created"
         fi
