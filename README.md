@@ -2,8 +2,10 @@
 
 ## VIM
 
+### Notes
+
 ## Bash
 
 ## Tmux
 
-## Notes
+
