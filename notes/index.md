@@ -15,5 +15,9 @@
     * [Vim Wiki](Vim Wiki)
     
 ## Test Targets
-    * 
+    * :
 
+## Desktop Setup
+    * [Nnvidia](Nnvidia)
+    * [GitHub](GitHub)
+    * [VirtualBox](VirtualBox)

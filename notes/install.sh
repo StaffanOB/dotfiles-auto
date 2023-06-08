@@ -1,5 +1,5 @@
 echo "NOTES"
 COMMAND="notes"
-FILES=("")
+FILES=("notes")
 DLINK=("$HOME/.notes")
 

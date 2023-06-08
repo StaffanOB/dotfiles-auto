@@ -33,7 +33,9 @@ for i in "${DIRS[@]}"; do
 	source "$i/install.sh"
 
     # Check if command exists
-	if type -p $COMMAND > /dev/null; then
+    if [[ "$COMMAND" == "toor-"* ]]; then
+	    echo "     * Custom Command $COMMAND is Installed "
+	elif type -p $COMMAND > /dev/null; then
 	    echo "     * Installed "
 	    echo "$DATE: $COMMAND Installed " >> $LOG_FILE
 	else
@@ -42,7 +44,7 @@ for i in "${DIRS[@]}"; do
 	fi
 
     for (( j = 0; j < ${#FILES[@]}; j++ )); do
-        if test -f "${DOTD}/${COMMAND}/${FILES[$j]}"; then 
+        if test -f "${DOTD}/${COMMAND}/${FILES[$j]}" || [[ "$COMMAND" == "toor-"* ]]; then 
     		rm -rf ${DLINK[$j]} > /dev/null 3>&1
 	    	ln -s ${DOTD}/${COMMAND}/${FILES[$j]} ${DLINK[$j]}
 
