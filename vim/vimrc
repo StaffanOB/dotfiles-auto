@@ -31,8 +31,10 @@ Plug 'ap/vim-buftabline'                                " Helps manage buffers
 Plug 'vim-airline/vim-airline'                          " VIM Status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'                               " VIM Start Page
+Plug 'christoomey/vim-tmux-navigator'                   " TMUX/VIM Nav integration
 
-
+" Languages
+Plug 'vigoux/LanguageTool.nvim'
 
 call plug#end() 
 
@@ -74,26 +76,26 @@ if has('gui_running') || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
 endif
 
 " Colors and theme
-let &colorcolumn='81'                                   " Set a marker at colum 80
+let &colorcolumn='81'                           " Set a marker at colum 80
 highlight ColorColumn ctermbg=233
 
 
 " ------------------------------------------------------------------------------
 " GENERAL EDIT CONFIGURATION 
 set encoding=utf-8
-set nocompatible                                        " No vi-compatible
-autocmd! bufwritepost .vimrc source %                   " Automatic reload VIMRC
+set nocompatible                               " No vi-compatible
+autocmd! bufwritepost .vimrc source %          " Automatic reload VIMRC
 
-filetype plugin on		                                  " Allow plugins by file type (required for plugins!)
+filetype plugin on	       " Allow plugins by file type (required for plugins!)
 filetype indent on
 filetype on
-syntax on			                                          " Syntax highlight on
+syntax on			       " Syntax highlight on
 
-set ls=2                                                " Always show status bar
-set nu				                                          " Show line numbers
-set rnu                                                 " Relative numbers
+set ls=2                   " Always show status bar
+set nu			           " Show line numbers
+set rnu                    " Relative numbers
 
-ca w!! w !sudo tee "%" 	                                " save as sudo
+ca w!! w !sudo tee "%" 	   " Save as sudo
 set scrolloff=3
 set list
 set listchars=eol:¬,tab:▸–
@@ -112,12 +114,12 @@ set softtabstop=4
 set shiftwidth=4
 
 " Searching
-set ignorecase                                        " Ignore case when searching
-set smartcase                                         " When searching try to be smart about cases
-set hlsearch                                          " Highlight search results
-set incsearch                                         " Makes search act like search in modern browsers
-set lazyredraw                                        " Don't redraw while executing macros (good performance config)
-set path+=**                                          " Recursive file searching
+set ignorecase                " Ignore case when searching
+set smartcase                 " When searching try to be smart about cases
+set hlsearch                  " Highlight search results
+set incsearch                 " Makes search act like search in modern browsers
+set lazyredraw                " Don't redraw while executing macros 
+set path+=**                  " Recursive file searching
 
 " Code folding
 set foldmethod=indent
@@ -145,10 +147,20 @@ autocmd BufNewFile,BufReadPost *.md set nonu nornu
 
 source $HOME/.vim/vimrc_vimwiki
 
+" TMUX Vim Navigator
+let g:tmux_navigator_no_mappings = 1
+
+noremap <silent> <C-h> :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> <C-j> :<C-U>TmuxNavigateDown<cr>
+noremap <silent> <C-k> :<C-U>TmuxNavigateUp<cr>
+noremap <silent> <C-;> :<C-U>TmuxNavigatePrevious<cr>
+noremap <silent> <C-l> :<C-U>TmuxNavigateRight<cr>
+
 
 " ------------------------------------------------------------------------------
 " GENERAL KEYBINDINGS
 let mapleader = "\<Space>"
+
 
 
 " Windows
@@ -178,14 +190,6 @@ nmap <leader>x :bd<CR>"
 nmap <leader>p :e#<CR>
 nmap <leader>B :Buffers<CR>
 
-
-" Moving selected text
-nnoremap <c-k> :m .-2<CR>==
-nnoremap <c-j> :m .+1<CR>==
-vnoremap <c-j> :m '>+1<CR>gv=gv
-vnoremap <c-k> :m '<-2<CR>gv=gv
-
-
 " Date and time
 imap <F2> <C-R>=strftime("%A, %d %b %Y")<CR>
 imap <F3> <C-R>=strftime("%I:%m")<CR>
@@ -201,10 +205,10 @@ noremap <Leader>tt :below terminal ++rows=10<CR>
 nnoremap <leader>f :wincmd v<bar> :Ex <bar> :vertical resize30<CR
     
 " Moving selected text 
-nnoremap <c-k> :m .-2<CR>== 
-nnoremap <c-j> :m .+1<CR>== 
-vnoremap <c-j> :m '>+1<CR>gv=gv
-vnoremap <c-k> :m '<-2<CR>gv=gv
+"nnoremap <c-k> :m .-2<CR>== 
+"nnoremap <c-j> :m .+1<CR>== 
+"vnoremap <c-j> :m '>+1<CR>gv=gv
+"vnoremap <c-k> :m '<-2<CR>gv=gv
 
 
 " Date and time
