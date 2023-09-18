@@ -1,0 +1,2 @@
+" --- FZF Open fuzzy Searching
+nnoremap <silent> <C-f> :Files<CR>

@@ -1,3 +1,7 @@
+set encoding=utf-8
+set nocompatible                               " No vi-compatible
+autocmd! bufwritepost .vimrc source %          " Automatic reload VIMRC
+
 " ------------------------------------------------------------------------------
 " PLUGIN CONFIGURATIONS 
 " Vim-plug initialization
@@ -26,17 +30,42 @@ call plug#begin("~/.vim/plugins")
 " PLUGGIN LIST
 
 " General
-Plug 'vimwiki/vimwiki'                                 " Markdown wiki 
+Plug 'vimwiki/vimwiki'                                  " Markdown wiki 
 Plug 'ap/vim-buftabline'                                " Helps manage buffers
 Plug 'vim-airline/vim-airline'                          " VIM Status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'                               " VIM Start Page
 Plug 'christoomey/vim-tmux-navigator'                   " TMUX/VIM Nav integration
 
+" Editing
+Plug 'majutsushi/tagbar'                                " Class outline viewer
+Plug 'tpope/vim-sensible'                               " See changes to the file 
+
+" Searching
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Languages
 Plug 'vigoux/LanguageTool.nvim'
 
+" Python 
+Plug 'vim-scripts/indentpython.vim'
+Plug 'dense-analysis/ale'
+Plug 'nvie/vim-flake8'
+
+" Code complete
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+
+" Themes and colors
+"Plug 'lilydjwg/colorizer'               " Colorizes the background of color codes
+Plug 'joshdick/onedark.vim'
+
 call plug#end() 
+
+colorscheme onedark
+
+set noshowmode
+
 
 " ------------------------------------------------------------------------------
 " Install plugins the first time vim runs
@@ -82,10 +111,6 @@ highlight ColorColumn ctermbg=233
 
 " ------------------------------------------------------------------------------
 " GENERAL EDIT CONFIGURATION 
-set encoding=utf-8
-set nocompatible                               " No vi-compatible
-autocmd! bufwritepost .vimrc source %          " Automatic reload VIMRC
-
 filetype plugin on	       " Allow plugins by file type (required for plugins!)
 filetype indent on
 filetype on
@@ -106,6 +131,26 @@ set shortmess+=c
 
 hi cursorline   cterm=none  ctermbg=black  guibg=blue
 set cursorline
+
+" System Clip Board
+set clipboard=unnamed
+
+
+" Python Edeting
+let python_highlight_all=1
+
+" clear empty spaces at the end of lines on save of python files
+autocmd BufWritePre *.py,*.pyw :%s/\s\+$//e
+
+au BufNewFile, BufRead *.py,*.pyw
+	\ set tabstop=4
+	\ set softtabstop=4
+	\ set shiftwidth=4
+	\ set textwidth=79
+	\ set expandtab
+	\ set autoindent
+	\ set fileformat=unix
+
 
 " Tabs and spaces handling
 set expandtab
@@ -160,7 +205,6 @@ noremap <silent> <C-l> :<C-U>TmuxNavigateRight<cr>
 " ------------------------------------------------------------------------------
 " GENERAL KEYBINDINGS
 let mapleader = "\<Space>"
-
 
 
 " Windows
@@ -227,3 +271,10 @@ nnoremap <leader>f :wincmd v<bar> :Ex <bar> :vertical resize30<CR>
 
 " ------------------------------------------------------------------------------
 " PLUGINS
+" ------------------------------------------------------------------------------
+source ~/.vim/vimrc_fzf
+source ~/.vim/vimrc_coc
+source ~/.vim/vimrc_ale
+source ~/.vim/vimrc_tagbar
+source ~/.vim/vimrc_airline
+
