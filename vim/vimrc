@@ -40,6 +40,9 @@ Plug 'christoomey/vim-tmux-navigator'                   " TMUX/VIM Nav integrati
 " Editing
 Plug 'majutsushi/tagbar'                                " Class outline viewer
 Plug 'tpope/vim-sensible'                               " See changes to the file 
+Plug 'tpope/vim-unimpaired'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Searching
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -52,6 +55,7 @@ Plug 'vigoux/LanguageTool.nvim'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'dense-analysis/ale'
 Plug 'nvie/vim-flake8'
+Plug 'sansyrox/vim-python-virtualenv'
 
 " Code complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
@@ -78,7 +82,7 @@ endif
 " ------------------------------------------------------------------------------
 " GENERAL VIM CONFIGURATION 
 " Setup dirs for general vim files
-set directory=~/.vim/tmp     	                          " Directory to place swap files in
+set directory=~/tmp/vim     	                          " Directory to place swap files in
 if !isdirectory(&directory)
     call mkdir(&directory, "p")
 endif
@@ -90,12 +94,12 @@ if !isdirectory(&backupdir)
 endif
 
 set undofile                                            " Persistent undos - undo after you re-open the file
-set undodir=~/.vim/undos
+set undodir=~/tmp/vim/undos
 if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
 
-set viminfo+=n~/.viminfo
+set viminfo+=n~/tmp/.viminfo
 
 " Use 256 colors when possible
 if has('gui_running') || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
@@ -269,6 +273,9 @@ noremap <Leader>tt :below terminal ++rows=10<CR>
 " Open vim file tree 
 nnoremap <leader>f :wincmd v<bar> :Ex <bar> :vertical resize30<CR>
 
+" virtualenv
+let g:python3_host_prog='/usr/bin/python3'
+
 " ------------------------------------------------------------------------------
 " PLUGINS
 " ------------------------------------------------------------------------------
@@ -277,4 +284,4 @@ source ~/.vim/vimrc_coc
 source ~/.vim/vimrc_ale
 source ~/.vim/vimrc_tagbar
 source ~/.vim/vimrc_airline
-
+source ~/.vim/vimrc_ultisnippets

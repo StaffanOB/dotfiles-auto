@@ -1,0 +1,17 @@
+# vim: filetype=muttrc
+
+set imap_user = "staffan.bjornson@toor.se"
+set imap_pass = "Powerd2#21!"
+set smtp_url = "smtp://staffan.bjornson@mailcluster.loopia.se:587/"
+set smtp_pass = "Powerd2#21!"
+set from = "staffan.bjornson@toor.se"
+set realname = "Staffan Bjornson"
+set folder = "imaps://mailcluster.loopia.se:993"
+set spoolfile = "+INBOX"
+set header_cache = ~/.mutt/se.toor.staffan.bjornson/cache/headers
+set message_cachedir = ~/.mutt/se.toor.staffan.bjornson/cache/bodies
+set certificate_file = ~/.mutt/se.toor.staffan.bjornson/certificates
+
+set sidebar_short_path          # Shorten mailbox names (truncate all subdirs)
+set sidebar_component_depth=1   # Shorten mailbox names (truncate 1 subdirs)
+set sidebar_delim_chars="."     # Delete everything up to the last or Nth / character
