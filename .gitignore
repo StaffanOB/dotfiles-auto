@@ -2,3 +2,5 @@
 *.bak
 **/vim/backups
 **/vim/undos
+**/tmux/plugins
+secrets.txt
