@@ -57,6 +57,13 @@ Plug 'dense-analysis/ale'
 Plug 'nvie/vim-flake8'
 Plug 'sansyrox/vim-python-virtualenv'
 
+" Javascrip
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+
 " Code complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 
@@ -78,6 +85,16 @@ if vim_plug_just_installed
     :PlugInstall
 endif
 
+" ------------------------------------------------------------------------------
+" PLUGINS
+" ------------------------------------------------------------------------------
+source ~/.vim/vimrc_fzf
+source ~/.vim/vimrc_coc
+source ~/.vim/vimrc_ale
+source ~/.vim/vimrc_tagbar
+source ~/.vim/vimrc_airline
+source ~/.vim/vimrc_ultisnippets
+source ~/.vim/vimrc_vimwiki
 
 " ------------------------------------------------------------------------------
 " GENERAL VIM CONFIGURATION 
@@ -194,7 +211,6 @@ autocmd BufNewFile,BufReadPost *.md set nonu nornu
 " ------------------------------------------------------------------------------
 " PLUGINS SETTINGS AND MAPPINGS  
 
-source $HOME/.vim/vimrc_vimwiki
 
 " TMUX Vim Navigator
 let g:tmux_navigator_no_mappings = 1
@@ -276,12 +292,3 @@ nnoremap <leader>f :wincmd v<bar> :Ex <bar> :vertical resize30<CR>
 " virtualenv
 let g:python3_host_prog='/usr/bin/python3'
 
-" ------------------------------------------------------------------------------
-" PLUGINS
-" ------------------------------------------------------------------------------
-source ~/.vim/vimrc_fzf
-source ~/.vim/vimrc_coc
-source ~/.vim/vimrc_ale
-source ~/.vim/vimrc_tagbar
-source ~/.vim/vimrc_airline
-source ~/.vim/vimrc_ultisnippets

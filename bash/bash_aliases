@@ -1,6 +1,11 @@
 alias l='ls -lh'
 alias ll='ls -AlF'
 alias mutt='neomutt'
+alias ga="git add ."
+alias gp="git pull"
+alias gs="git status"
+alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
+alias vm="source ./.venv/bin/activate"
 
 # Editor
 #alias vim='vi'

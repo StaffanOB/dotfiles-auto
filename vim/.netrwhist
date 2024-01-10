@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/staffan/develop/python/course_rest_flask/firs_api/resources'
 let g:netrw_dirhist_2='/home/staffan/develop/python/course_rest_flask/firs_api/migrations'
 let g:netrw_dirhist_1='/home/staffan/develop/python/course_rest_flask/firs_api'
 let g:netrw_dirhist_0='/home/staffan/.tmux'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_7='/home/staffan'
 let g:netrw_dirhist_6='/home/staffan/develop/python/course_rest_flask'
 let g:netrw_dirhist_5='/home/staffan'
 let g:netrw_dirhist_4='/home/staffan/develop/courses/lppm/src'
-let g:netrw_dirhist_3='/home/staffan/develop/dotfiles-auto/vim/plugins/onedark.vim/colors'
