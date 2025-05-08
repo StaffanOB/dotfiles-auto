@@ -1,0 +1,9 @@
+let g:grammarous#languagetool_jar = '/home/staffan/.vim/plugins/vim-grammarous/misc/LanguageTool-6.6/languagetool-commandline.jar'
+let g:grammarous#debug = 1
+
+
+let g:grammarous#default_lang = 'en-US'
+let g:grammarous#enable_spell_check = 1
+
+nnoremap <leader>gc :GrammarousCheck<CR>
+nnoremap <leader>gr :GrammarousReset<CR>
